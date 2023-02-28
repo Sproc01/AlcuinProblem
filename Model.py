@@ -90,5 +90,3 @@ if __name__ == '__main__':
     res = opt.solve(tee=True)
     for p in model.x:
 	    print("x[{}] = {}".format(p, value(model.x[p])))
-    for p in model.y:
-	    print("y[{}] = {}".format(p, value(model.y[p])))
