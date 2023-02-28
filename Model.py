@@ -7,14 +7,14 @@ Trips=[]
 Edges=["LP","PC"]
 c=1
 
-for j in range(2*len(Nodes)+1):
+for j in range(2*len(Nodes)+2):
     Trips.append(j)
 
 def obj_rule(model):
     return sum(model.y[f] for f in model.Trips)-1
 
 def constr_rule1(model):
-    return sum(model.x[i,"s",0] for i in model.Nodes)==len(Nodes)
+    return sum(model.x[i,"s",0] for i in model.Nodes)==len(model.Nodes)
 
 def constr_rule2(model):
     return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==model.Nodes.size()
