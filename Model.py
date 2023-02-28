@@ -88,5 +88,7 @@ if __name__ == '__main__':
     opt = SolverFactory('cplex_persistent')
     opt.setInstance(model)
     res = opt.solve(tee=True)
-    for p in instance.x:
-	    print("x[{}] = {}".format(p, value(instance.x[p])))
+    for p in model.x:
+	    print("x[{}] = {}".format(p, value(model.x[p])))
+    for p in model.y:
+	    print("y[{}] = {}".format(p, value(model.y[p])))
