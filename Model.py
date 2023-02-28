@@ -65,7 +65,7 @@ def buildmodel():
     model.Capacity.value = c
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
-    model.y=Var(model.Trip, domain=Boolean)
+    model.y=Var(model.Trips, domain=Boolean)
     # objective
     model.obj = Objective(rule=obj_rule, sense=maximize)
     # constraints
