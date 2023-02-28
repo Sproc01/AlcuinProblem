@@ -60,7 +60,7 @@ def buildmodel():
     model.Places = Set(initialize=Places)
     model.Trips = Set(initialize=Trips)
     model.Edges = Set(initialize=Edges)
-    model.Capacity = Param(mutable=False)
+    model.Capacity = Param(mutable=True)
     model.Capacity.value = c
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trip, domain=Boolean)
