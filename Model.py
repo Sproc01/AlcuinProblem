@@ -57,9 +57,9 @@ def constr_rule12(model, f, i):
 	
 def buildmodel():
     model=ConcreteModel()
-    model.Places = Param(model.Items, initialize=lambda model, j: Places[j])
-    model.Trips = Param(model.Items, initialize=lambda model, j: Trips[j])
-    model.Edges = Param(model.Items, initialize=lambda model, j: Edges[j])
+    model.Places = Set(initialize=Places)
+    model.Trips = Set(initialize=Trips)
+    model.Edges = Set(initialize=Edges)
     model.Capacity = Param(mutable=False)
     model.Capacity.value = c
     # variables
