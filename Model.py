@@ -17,7 +17,7 @@ def constr_rule1(model):
     return sum(model.x[i,"s",0] for i in model.Nodes)==len(model.Nodes)
 
 def constr_rule2(model):
-    return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==model.Nodes.size()
+    return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==len(model.Nodes)
 
 def constr_rule3(model):
     return model.y[0]==1
