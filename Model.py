@@ -42,13 +42,13 @@ def constr_rule8(model, f): #vincolo capacità
 
 def constr_rule9(model, i, f): #vincolo gite pari
     if f%2==0:
-        return model.x[i,"s",f]+model.x[i, "b", f]<=model.x[i,"s",f+1]+model.x[i, "b", f+1]
+        return model.x[i,"s",f]+model.x[i, "b", f]==model.x[i,"s",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
 def constr_rule10(model, i, f): #vincolo gite dispari
     if (f%2!=0) & (f<(2*len(model.Nodes))):
-        return model.x[i,"d",f]+model.x[i, "b", f]<=model.x[i,"d",f+1]+model.x[i, "b", f+1]
+        return model.x[i,"d",f]+model.x[i, "b", f]==model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
