@@ -40,22 +40,22 @@ def constr_rule7(model, f):
 def constr_rule8(model, f):
     return sum(model.x[i,"b",f] for i in model.Nodes)<=model.Capacity*model.y[f]
 
-def constr_rule9(model, f, i):
+def constr_rule9(model, i, f):
     if f%2==0:
         return model.x[i,"s",f]+model.x[i, "b", f]<=model.x[i,"s",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
-def constr_rule10(model, f, i):
+def constr_rule10(model, i, f):
     if f%2!=0:
         return model.x[i,"d",f]+model.x[i, "b", f]<=model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
-def constr_rule11(model, f, i):
+def constr_rule11(model, i, f):
     return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
 
-def constr_rule12(model, f, i):
+def constr_rule12(model, i, f):
     return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
@@ -80,10 +80,10 @@ def buildmodel():
     model.constrs6 =  Constraint(model.Trips,rule=constr_rule6)
     model.constrs7 =  Constraint(model.Trips,rule=constr_rule7)
     model.constrs8 =  Constraint(model.Trips,rule=constr_rule8)
-    model.constrs9 =  Constraint(model.Trips,rule=constr_rule9)
-    model.constrs10 =  Constraint(model.Trips,rule=constr_rule10)
-    model.constrs11 =  Constraint(model.Trips,rule=constr_rule11)
-    model.constrs12 =  Constraint(model.Trips,rule=constr_rule12)
+    model.constrs9 =  Constraint(model.Nodes, model.Trips,rule=constr_rule9)
+    model.constrs10 =  Constraint(model.Nodes, model.Trips,rule=constr_rule10)
+    model.constrs11 =  Constraint(model.Nodes, model.Trips,rule=constr_rule11)
+    model.constrs12 =  Constraint(model.Nodes, model.Trips,rule=constr_rule12)
     return model
 
 if __name__ == '__main__':
