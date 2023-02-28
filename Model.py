@@ -10,52 +10,52 @@ c=1
 for j in range(2*len(Nodes)+2):
     Trips.append(j)
 
-def obj_rule(model):
+def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
-def constr_rule1(model):
+def constr_rule1(model):#vincolo di partenza
     return sum(model.x[i,"s",0] for i in model.Nodes)==len(model.Nodes)
 
-def constr_rule2(model):
+def constr_rule2(model):#vincolo di arrivo
     return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==len(model.Nodes)
 
-def constr_rule3(model):
+def constr_rule3(model):#vincolo di partenza y
     return model.y[0]==1
 
-def constr_rule4(model, i, f):
+def constr_rule4(model, i, f):#vincolo un oggetto in un solo luogo
     return sum(model.x[i,l,f] for l in model.Places)==1
 
-def constr_rule5(model, f):
+def constr_rule5(model, f):#vincolo di progressione y
     if f>0:
         return model.y[f]<=model.y[f-1]
     else:
         return Constraint.Skip
 
-def constr_rule6(model, f):
+def constr_rule6(model,f): #vincolo legame y x 1
     return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)>=model.y[f]
 
-def constr_rule7(model, f):
+def constr_rule7(model, f): #vincolo legame y x 2
     return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)<=len(model.Nodes)*model.y[f]
 
-def constr_rule8(model, f):
+def constr_rule8(model, f): #vincolo capacità
     return sum(model.x[i,"b",f] for i in model.Nodes)<=model.Capacity*model.y[f]
 
-def constr_rule9(model, i, f):
+def constr_rule9(model, i, f): #vincolo gite pari
     if f%2==0:
         return model.x[i,"s",f]+model.x[i, "b", f]<=model.x[i,"s",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
-def constr_rule10(model, i, f):
+def constr_rule10(model, i, f): #vincolo gite dispari
     if (f%2!=0) & (f<(2*len(model.Nodes))):
         return model.x[i,"d",f]+model.x[i, "b", f]<=model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
 
-def constr_rule11(model, i, f):
+def constr_rule11(model, i, f): #stable set a sinistra
     return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
 
-def constr_rule12(model, i, f):
+def constr_rule12(model, i, f): #stable set a destra
     return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
