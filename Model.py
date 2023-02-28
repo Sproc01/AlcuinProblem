@@ -53,7 +53,10 @@ def constr_rule10(model, i, f): #vincolo gite dispari
         return Constraint.Skip
 
 def constr_rule11(model, i, f): #stable set a sinistra
-    return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
+    if f>0:
+        return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
+    else:
+        return Constraint.Skip
 
 def constr_rule12(model, i, f): #stable set a destra
     return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
