@@ -76,8 +76,8 @@ def buildmodel():
     model.constrs6 =  Constraint(model.Trips,rule=constr_rule6)
     model.constrs7 =  Constraint(model.Trips,rule=constr_rule7)
     model.constrs8 =  Constraint(model.Trips,rule=constr_rule8)
-    model.constrs9 =  Constraint(model.Trips,rule=constr_rule9)#sistema
-    model.constrs10 =  Constraint(model.Trips,rule=constr_rule10)#sistema
+    model.constrs9 =  Constraint(model.Trips,rule=constr_rule9)
+    model.constrs10 =  Constraint(model.Trips,rule=constr_rule10)
     model.constrs11 =  Constraint(model.Trips,rule=constr_rule11)
     model.constrs12 =  Constraint(model.Trips,rule=constr_rule12)
     return model
