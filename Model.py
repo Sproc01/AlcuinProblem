@@ -47,7 +47,7 @@ def constr_rule9(model, i, f):
         return Constraint.Skip
 
 def constr_rule10(model, i, f):
-    if f%2!=0 & f<2*len(model.Nodes):
+    if (f%2!=0) & (f<(2*len(model.Nodes))):
         return model.x[i,"d",f]+model.x[i, "b", f]<=model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
