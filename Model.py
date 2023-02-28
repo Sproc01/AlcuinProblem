@@ -64,7 +64,7 @@ def buildmodel():
     model.Capacity = Param(mutable=True)
     model.Capacity.value = c
     # variables
-    model.x = Var(model.Nodes, model.Places,model.Trip, domain=Boolean)
+    model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trip, domain=Boolean)
     # objective
     model.obj = Objective(rule=obj_rule, sense=maximize)
