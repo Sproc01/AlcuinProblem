@@ -82,8 +82,8 @@ def buildmodel():
     model.constrs8 =  Constraint(model.Trips,rule=constr_rule8)
     model.constrs9 =  Constraint(model.Nodes, model.Trips,rule=constr_rule9)
     model.constrs10 =  Constraint(model.Nodes, model.Trips,rule=constr_rule10)
-    model.constrs11 =  Constraint(model.Nodes, model.Trips,rule=constr_rule11)
-    model.constrs12 =  Constraint(model.Nodes, model.Trips,rule=constr_rule12)
+    model.constrs11 =  Constraint(model.Edges, model.Trips,rule=constr_rule11)
+    model.constrs12 =  Constraint(model.Edges, model.Trips,rule=constr_rule12)
     return model
 
 if __name__ == '__main__':
