@@ -26,7 +26,10 @@ def constr_rule4(model, i, f):
     return sum(model.x[i,l,f] for l in model.Places)==1
 
 def constr_rule5(model, f):
-    return model.y[f]<=model.y[f-1]
+    if f>0:
+        return model.y[f]<=model.y[f-1]
+    else:
+        return Constraint.Skip
 
 def constr_rule6(model, f):
     return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)>=model.y[f]
