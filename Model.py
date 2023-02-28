@@ -53,7 +53,7 @@ def constr_rule11(model, f, i):
     return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
 
 def constr_rule12(model, f, i):
-    return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-y[f]
+    return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
     model=ConcreteModel()
