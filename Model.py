@@ -86,8 +86,7 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    #instance = model.create_instance(sys.argv[1])
-    #opt.set_instance(instance)
+    opt.setInstance(model)
     res = opt.solve(tee=True)
     for p in instance.x:
 	    print("x[{}] = {}".format(p, value(instance.x[p])))
