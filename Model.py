@@ -11,7 +11,7 @@ for j in range(2*len(Nodes)+1):
     Trips.append(j)
 
 def obj_rule(model):
-    return sum(model.y[f] for f in model.Trip)-1
+    return sum(model.y[f] for f in model.Trips)-1
 
 def constr_rule1(model):
     return sum(model.x[i,"s",0] for i in model.Nodes)==model.Nodes.size()
