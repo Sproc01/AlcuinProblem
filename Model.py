@@ -73,7 +73,7 @@ def buildmodel():
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trips, domain=Boolean)
     # objective
-    model.obj = Objective(rule=obj_rule, sense=maximize)
+    model.obj = Objective(rule=obj_rule, sense=minimize)
     # constraints
     model.constrs1 = Constraint(rule=constr_rule1)
     model.constrs2 = Constraint(rule=constr_rule2)
