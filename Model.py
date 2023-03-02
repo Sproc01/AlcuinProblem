@@ -1,13 +1,14 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
-#Places=["s","b","d"]
-#Nodes=["L","P","C"]
-#Trips=[]
-##Edges=["LP","PC"]
-#c=1
-#for j in range(2*len(Nodes)+2):
-    #Trips.append(j)
+Places=["s","b","d"]
+Nodes=["L","P","C"]
+Trips=[]
+Edges=["LP","PC"]
+c=1
+
+for j in range(2*len(Nodes)+2):
+    Trips.append(j)
 
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
@@ -46,7 +47,7 @@ def constr_rule9(model, i, f): #vincolo gite pari
         return Constraint.Skip
 
 def constr_rule10(model, i, f): #vincolo gite dispari
-    if (f%2!=0) & (f<(2*len(model.Nodes))):
+    if (f%2!=0) and (f<(2*len(model.Nodes))):
         return model.x[i,"d",f]+model.x[i, "b", f]==model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
@@ -61,12 +62,13 @@ def constr_rule12(model, i, f): #stable set a destra
     return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
-    model=AbstractModel()
-    model.Places = Set()
-    model.Trips = Set()
-    model.Edges = Set()
-    model.Nodes=Set()
-    model.Capacity = Param()
+    model=ConcreteModel()
+    model.Places = Set(initialize=Places)
+    model.Trips = Set(initialize=Trips)
+    model.Edges = Set(initialize=Edges)
+    model.Nodes=Set(initialize=Nodes)
+    model.Capacity = Param(mutable=True)
+    model.Capacity.value = c
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trips, domain=Boolean)
@@ -91,8 +93,7 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    instance = model.create_instance(sys.argv[1])
-    opt.set_instance(instance)
+    opt.set_instance(model)
     res = opt.solve(tee=True)
     for p in model.x:
 	    print("x[{}] = {}".format(p, value(model.x[p])))
