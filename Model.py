@@ -97,3 +97,5 @@ if __name__ == '__main__':
     res = opt.solve(tee=True)
     for p in instance.x:
 	    print("x[{}] = {}".format(p, value(instance.x[p])))
+    for p in instance.y:
+        print("y[{}] = {}".format(p, value(instance.y[p])))
