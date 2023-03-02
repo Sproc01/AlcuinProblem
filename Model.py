@@ -13,10 +13,10 @@ def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
 def constr_rule1(model):#vincolo di partenza
-    return sum(model.x[i,"s",0] for i in model.Nodes)==len(model.Nodes)
+    return sum(model.x[i,"s",0] for i in model.Nodes)==model.len
 
 def constr_rule2(model):#vincolo di arrivo
-    return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==len(model.Nodes)
+    return sum(model.x[i,"d",2*model.len+1] for i in model.Nodes)+sum(model.x[i,"b", 2*model.len+1] for i in model.Nodes)==model.len
 
 def constr_rule3(model):#vincolo di partenza y
     return model.y[0]==1
@@ -34,7 +34,7 @@ def constr_rule6(model,f): #vincolo legame y x 1
     return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)>=model.y[f]
 
 def constr_rule7(model, f): #vincolo legame y x 2
-    return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)<=len(model.Nodes)*model.y[f]
+    return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)<=model.len*model.y[f]
 
 def constr_rule8(model, f): #vincolo capacità
     return sum(model.x[i,"b",f] for i in model.Nodes)<=model.Capacity*model.y[f]
@@ -46,7 +46,7 @@ def constr_rule9(model, i, f): #vincolo gite pari
         return Constraint.Skip
 
 def constr_rule10(model, i, f): #vincolo gite dispari
-    if (f%2!=0) and (f<(2*len(model.Nodes))):
+    if (f%2!=0) and (f<(2*model.len+1)):
         return model.x[i,"d",f]+model.x[i, "b", f]==model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
@@ -67,6 +67,7 @@ def buildmodel():
     model.Edges = Set()
     model.Nodes=Set()
     model.Capacity = Param()
+    model.len=Param()
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trips, domain=Boolean)
