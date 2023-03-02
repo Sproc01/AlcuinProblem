@@ -95,5 +95,5 @@ if __name__ == '__main__':
     instance = model.create_instance(sys.argv[1])
     opt.set_instance(instance)
     res = opt.solve(tee=True)
-    for p in model.x:
-	    print("x[{}] = {}".format(p, value(model.x[p])))
+    for p in instance.x:
+	    print("x[{}] = {}".format(p, value(instance.x[p])))
