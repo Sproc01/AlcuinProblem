@@ -1,6 +1,6 @@
 set Places := s b d ;
 set Nodes := L C P ;
 set Edges := LP PC ;
-set Trips := 1 2 3 4 5 6 7 ;
+set Trips := 0 1 2 3 4 5 6 7 ;
 
 param Capacity := 1;
