@@ -1,14 +1,13 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
-Places=["s","b","d"]
-Nodes=["L","P","C"]
-Trips=[]
-Edges=["LP","PC"]
-c=1
-
-for j in range(2*len(Nodes)+2):
-    Trips.append(j)
+#Places=["s","b","d"]
+#Nodes=["L","P","C"]
+#Trips=[]
+##Edges=["LP","PC"]
+#c=1
+#for j in range(2*len(Nodes)+2):
+    #Trips.append(j)
 
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
@@ -62,13 +61,12 @@ def constr_rule12(model, i, f): #stable set a destra
     return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
-    model=ConcreteModel()
-    model.Places = Set(initialize=Places)
-    model.Trips = Set(initialize=Trips)
-    model.Edges = Set(initialize=Edges)
-    model.Nodes=Set(initialize=Nodes)
-    model.Capacity = Param(mutable=True)
-    model.Capacity.value = c
+    model=AbstractModel()
+    model.Places = Set()
+    model.Trips = Set()
+    model.Edges = Set()
+    model.Nodes=Set()
+    model.Capacity = Param()
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trips, domain=Boolean)
@@ -93,7 +91,8 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    opt.set_instance(model)
+    instance = model.create_instance(sys.argv[1])
+    opt.set_instance(instance)
     res = opt.solve(tee=True)
     for p in model.x:
 	    print("x[{}] = {}".format(p, value(model.x[p])))
