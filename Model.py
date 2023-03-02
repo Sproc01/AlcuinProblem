@@ -1,7 +1,7 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
-Places=["s","b","d"]
+#Places=["s","b","d"]
 #Nodes=["L","P","C"]
 #Trips=[]
 ##Edges=["LP","PC"]
@@ -62,7 +62,7 @@ def constr_rule12(model, i, f): #stable set a destra
 	
 def buildmodel():
     model=AbstractModel()
-    model.Places = Set(Initialize=Places)
+    model.Places = Set()
     model.Trips = Set()
     model.Edges = Set()
     model.Nodes=Set()
