@@ -4,7 +4,7 @@ from pyomo.opt import SolverFactory
 Places=["s","b","d"]
 Nodes=["L","P","C"]
 Trips=[]
-Edges=["LP","PC"]
+Edges=["L-P","P-C"]
 c=1
 
 for j in range(2*len(Nodes)+2):
@@ -53,13 +53,19 @@ def constr_rule10(model, i, f): #vincolo gite dispari
         return Constraint.Skip
 
 def constr_rule11(model, i, f): #stable set a sinistra
+    #aggiunta
+    l=i.split("-")
+    #------
     if f>0:
-        return model.x[i[0],"s",f]+model.x[i[1], "s", f]<=1
+        return model.x[l[0],"s",f]+model.x[l[1], "s", f]<=1
     else:
         return Constraint.Skip
 
 def constr_rule12(model, i, f): #stable set a destra
-    return model.x[i[0],"d",f]+model.x[i[1], "d", f]<=2-model.y[f]
+    #aggiunta
+    l=i.split("-")
+    #------
+    return model.x[l[0],"d",f]+model.x[l[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
     model=ConcreteModel()
