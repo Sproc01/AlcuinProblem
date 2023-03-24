@@ -13,7 +13,7 @@ for i in files:
         l1=i.split(" ")
         w.write(l1[0]+" ")
         for i in range(1, len(l1)):
-            w1.write(str(l1[0])+str(l1[i])+" ")
+            w1.write(str(l1[0])+"-"+str(l1[i])+" ")
     w.close()
     w1.close()
     
