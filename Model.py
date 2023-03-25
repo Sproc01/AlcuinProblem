@@ -1,14 +1,6 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
-#Places=["s","b","d"]
-#Nodes=["L","P","C"]
-#Trips=[]
-##Edges=["LP","PC"]
-#c=1
-#for j in range(2*len(Nodes)+2):
-    #Trips.append(j)
-
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
