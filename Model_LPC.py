@@ -1,23 +1,14 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
-Places=["s","b","d"]
-Nodes=["L","P","C"]
-Trips=[]
-Edges=["L-P","P-C"]
-c=1
-
-for j in range(2*len(Nodes)+2):
-    Trips.append(j)
-
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
 def constr_rule1(model):#vincolo di partenza
-    return sum(model.x[i,"s",0] for i in model.Nodes)==len(model.Nodes)
+    return sum(model.x[i,"s",0] for i in model.Nodes)==model.len
 
 def constr_rule2(model):#vincolo di arrivo
-    return sum(model.x[i,"d",2*len(model.Nodes)+1] for i in model.Nodes)+sum(model.x[i,"b", 2*len(model.Nodes)+1] for i in model.Nodes)==len(model.Nodes)
+    return sum(model.x[i,"d",2*model.len+1] for i in model.Nodes)+sum(model.x[i,"b", 2*model.len+1] for i in model.Nodes)==model.len
 
 def constr_rule3(model):#vincolo di partenza y
     return model.y[0]==1
@@ -35,7 +26,7 @@ def constr_rule6(model,f): #vincolo legame y x 1
     return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)>=model.y[f]
 
 def constr_rule7(model, f): #vincolo legame y x 2
-    return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)<=len(model.Nodes)*model.y[f]
+    return sum(model.x[i,"s",f] for i in model.Nodes)+sum(model.x[i,"b",f] for i in model.Nodes)<=model.len*model.y[f]
 
 def constr_rule8(model, f): #vincolo capacità
     return sum(model.x[i,"b",f] for i in model.Nodes)<=model.Capacity*model.y[f]
@@ -47,7 +38,7 @@ def constr_rule9(model, i, f): #vincolo gite pari
         return Constraint.Skip
 
 def constr_rule10(model, i, f): #vincolo gite dispari
-    if (f%2!=0) and (f<(2*len(model.Nodes)+1)):
+    if (f%2!=0) and (f<(2*model.len+1)):
         return model.x[i,"d",f]+model.x[i, "b", f]==model.x[i,"d",f+1]+model.x[i, "b", f+1]
     else:
         return Constraint.Skip
@@ -68,13 +59,13 @@ def constr_rule12(model, i, f): #stable set a destra
     return model.x[l[0],"d",f]+model.x[l[1], "d", f]<=2-model.y[f]
 	
 def buildmodel():
-    model=ConcreteModel()
-    model.Places = Set(initialize=Places)
-    model.Trips = Set(initialize=Trips)
-    model.Edges = Set(initialize=Edges)
-    model.Nodes=Set(initialize=Nodes)
-    model.Capacity = Param(mutable=True)
-    model.Capacity.value = c
+    model=AbstractModel()
+    model.Places = Set()
+    model.Trips = Set()
+    model.Edges = Set()
+    model.Nodes=Set()
+    model.Capacity = Param()
+    model.len=Param()
     # variables
     model.x = Var(model.Nodes, model.Places,model.Trips, domain=Boolean)
     model.y=Var(model.Trips, domain=Boolean)
@@ -99,10 +90,11 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    opt.set_instance(model)
-    opt.write("AlcuinConcrete.lp")
+    instance = model.create_instance(sys.argv[1])
+    opt.set_instance(instance)
+    opt.write("AlcuinAbstract_LPC.lp")
     res = opt.solve(tee=True)
-    for p in model.x:
-	    print("x[{}] = {}".format(p, value(model.x[p])))
-    for p in model.y:
-	    print("x[{}] = {}".format(p, value(model.y[p])))
+    for p in instance.x:
+	    print("x[{}] = {}".format(p, value(instance.x[p])))
+    for p in instance.y:
+        print("y[{}] = {}".format(p, value(instance.y[p])))

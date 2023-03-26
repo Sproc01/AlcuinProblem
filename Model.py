@@ -48,7 +48,7 @@ def constr_rule11(model, i, f): #stable set a sinistra
     l=i.split("-")
     #------
     if f>0:
-        return model.x[l[0],"s",f]+model.x[l[1], "s", f]<=1
+        return model.x[int(l[0]),"s",f]+model.x[int(l[1]), "s", f]<=1
     else:
         return Constraint.Skip
 
@@ -56,7 +56,7 @@ def constr_rule12(model, i, f): #stable set a destra
     #aggiunta
     l=i.split("-")
     #------
-    return model.x[l[0],"d",f]+model.x[l[1], "d", f]<=2-model.y[f]
+    return model.x[int(l[0]),"d",f]+model.x[int(l[1]), "d", f]<=2-model.y[f]
 	
 def buildmodel():
     model=AbstractModel()
@@ -92,6 +92,7 @@ if __name__ == '__main__':
     opt = SolverFactory('cplex_persistent')
     instance = model.create_instance(sys.argv[1])
     opt.set_instance(instance)
+    opt.write("AlcuinAbstract_Prova.lp")
     res = opt.solve(tee=True)
     for p in instance.x:
 	    print("x[{}] = {}".format(p, value(instance.x[p])))
