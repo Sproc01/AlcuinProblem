@@ -105,4 +105,4 @@ if __name__ == '__main__':
     for p in model.x:
 	    print("x[{}] = {}".format(p, value(model.x[p])))
     for p in model.y:
-	    print("x[{}] = {}".format(p, value(model.y[p])))
+	    print("y[{}] = {}".format(p, value(model.y[p])))
