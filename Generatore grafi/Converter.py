@@ -9,7 +9,7 @@ for i in files:
     file.close()
     w.write("set Places := s b d ;\n")
     w.write("set Nodes := ")
-    l=con.split("\n")
+    l=con.split("\n")[3:]
     cont=0
     for i in l:
         if len(i)>0:
