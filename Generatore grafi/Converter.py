@@ -13,6 +13,7 @@ for i in files:
     cont=0
     for i in l:
         if len(i)>0:
+            i=i.split(" ")
             w.write(i[0]+" ")
             cont+=1
     w.write(";\nset Edges:= ")

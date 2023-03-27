@@ -92,7 +92,7 @@ if __name__ == '__main__':
     opt = SolverFactory('cplex_persistent')
     instance = model.create_instance(sys.argv[1])
     opt.set_instance(instance)
-    opt.write("AlcuinAbstract_Prova.lp")
+    #opt.write("AlcuinAbstract_Prova.lp")
     res = opt.solve(tee=True)
     for p in instance.x:
 	    print("x[{}] = {}".format(p, value(instance.x[p])))
