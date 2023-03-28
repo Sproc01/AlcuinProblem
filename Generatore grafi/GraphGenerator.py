@@ -11,15 +11,15 @@ nx.write_adjlist(G1, "Grafi/gnp_random.txt")
 #random regular graph(d, n, seed), che restituisce un’istanza di grafo regolare di dimensione n 
 #in cui tutti i nodi hanno grado d. Il parametro seed anche in questo caso regola il
 #comportamento pseudo-casuale della generazione, permettendo la replicabilita' dell’esperimento.
-G2=nx.random_regular_graph(10, 100)
+G2=nx.random_regular_graph(2, 100)
 nx.write_adjlist(G2, "Grafi/random_regular.txt")
 
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi 
 #e' watts strogatz graph(n, k, p, seed), che restituisce un’istanza di grafo di Watts- Strogatz 
 #di dimensione n. I nodi di questo grafo sono inizialmente organizzati in una struttura ad anello 
 #in cui ogni nodo `e collegato ai suoi k//2+1 vicini sinistri e k//2+1 vicini destri ed in cui la 
-#probabilit`a che ciascun nodo sia ”ricollegato” con un altro nodo diverso da uno dei suoi vicini 
-#attuali `e p. Anche in questo caso il parametro seed regola il comportamento casuale della generazione,
+#probabilita' che ciascun nodo sia ”ricollegato” con un altro nodo diverso da uno dei suoi vicini 
+#attuali e' p. Anche in questo caso il parametro seed regola il comportamento casuale della generazione,
 #permettendo cosi' di ottenere la riproducibilita` dei risultati.
 G3=nx.watts_strogatz_graph(100, 10, 0.1)
 nx.write_adjlist(G3, "Grafi/watts_strogatz.txt")
