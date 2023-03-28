@@ -9,7 +9,7 @@ for i in files:
     file.close()
     w.write("set Places := s b d ;\n")
     w.write("set Nodes := ")
-    l=con.split("\n")[3:]
+    l=con.split("\n")[3:-1]
     cont=0
     for i in l:
         if len(i)>0:
@@ -26,7 +26,8 @@ for i in files:
     for i in range(0,2*cont+2):
         w.write(str(i)+" ")
     w.write(";\n\n")
-    w.write("param Capacity := 1;\n")
+    p=con.index("!")
+    w.write("param Capacity :="+con[p+1:]+";\n")
     w.write("param len := "+str(cont)+";\n")
     w.close()
     
