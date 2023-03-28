@@ -6,6 +6,10 @@ import networkx as nx
 #pseudo-casuale, in modo tale da permettere la riproducibilita` degli esperimenti.
 G1=nx.gnp_random_graph(100,0.1)
 nx.write_adjlist(G1, "Grafi/gnp_random.txt")
+c=len(G1)-len(nx.approximation.maximum_independent_set(G1))
+file=open("Grafi/gnp_random.txt","a")
+file.write("\n!"+str(c))
+file.close()
 
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi e' 
 #random regular graph(d, n, seed), che restituisce un’istanza di grafo regolare di dimensione n 
@@ -13,6 +17,10 @@ nx.write_adjlist(G1, "Grafi/gnp_random.txt")
 #comportamento pseudo-casuale della generazione, permettendo la replicabilita' dell’esperimento.
 G2=nx.random_regular_graph(2, 100)
 nx.write_adjlist(G2, "Grafi/random_regular.txt")
+c=len(G2)-len(nx.approximation.maximum_independent_set(G2))
+file=open("Grafi/random_regular.txt","a")
+file.write("\n!"+str(c))
+file.close()
 
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi 
 #e' watts strogatz graph(n, k, p, seed), che restituisce un’istanza di grafo di Watts- Strogatz 
@@ -23,6 +31,10 @@ nx.write_adjlist(G2, "Grafi/random_regular.txt")
 #permettendo cosi' di ottenere la riproducibilita` dei risultati.
 G3=nx.watts_strogatz_graph(100, 10, 0.1)
 nx.write_adjlist(G3, "Grafi/watts_strogatz.txt")
+c=len(G3)-len(nx.approximation.maximum_independent_set(G3))
+file=open("Grafi/watts_strogatz.txt","a")
+file.write("\n!"+str(c))
+file.close()
 
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi e' 
 #barabasi albert graph(n, m, seed), che restituisce un’istanza di grafo Barabasi-Albert 
@@ -32,7 +44,15 @@ nx.write_adjlist(G3, "Grafi/watts_strogatz.txt")
 #permettendo cosi' la replicabilita' dell’esperimento.
 G4=nx.barabasi_albert_graph(100, 10)
 nx.write_adjlist(G4, "Grafi/barbasi_albert.txt")
+c=len(G4)-len(nx.approximation.maximum_independent_set(G4))
+file=open("Grafi/barbasi_albert.txt","a")
+file.write("\n!"+str(c))
+file.close()
 
 #grafo prova con pochi elementi
 G5=nx.barabasi_albert_graph(10,4)
 nx.write_adjlist(G5, "Grafi/prova.txt")
+c=len(G5)-len(nx.approximation.maximum_independent_set(G5))
+file=open("Grafi/prova.txt","a")
+file.write("\n!"+str(c))
+file.close()

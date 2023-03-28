@@ -1,7 +1,7 @@
 set Places := s b d ;
-set Nodes := 0 1 2 3 4 5 6 7 8 9 ;
-set Edges:= 0-1 0-2 0-3 0-4 0-5 0-6 0-7 0-8 0-9 2-5 2-6 2-8 3-5 3-6 3-7 3-9 4-5 4-7 5-6 5-8 5-9 6-7 6-9 7-8 ;
-set Trips := 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 ;
+set Nodes := 0  1  2  3  4  5  7 ;
+set Edges:= - - - - - - ;
+set Trips := 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 ;
 
-param Capacity := 1;
-param len := 10;
+param Capacity := 6;
+param len := 13;
