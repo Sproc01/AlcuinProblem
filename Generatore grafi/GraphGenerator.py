@@ -1,5 +1,7 @@
 import networkx as nx
 
+#nx.approximation.maximum_independent_set(G1) Returns an approximate maximum independent set.
+
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi e' 
 #gnprandomgraph(n,p,seed), che restituisce un’istanza di grafo G(n,p) di dimensione n in cui gli archi 
 #hanno probabilita` di essere generati pari a p, mentre il parametro seed regola il comportamento 
