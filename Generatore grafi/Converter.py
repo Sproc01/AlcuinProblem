@@ -1,7 +1,10 @@
 import os
 
 files=os.listdir("Grafi")
-files.remove(".DS_Store")
+try:
+    files.remove(".DS_Store")
+except:
+    pass
 for i in files:
     file=open("Grafi/"+i, "r")
     w=open("Convertiti/data_"+i[:len(i)-4]+".dat", "w")
