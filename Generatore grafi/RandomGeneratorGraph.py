@@ -6,7 +6,7 @@ import networkx as nx
 #pseudo-casuale, in modo tale da permettere la riproducibilita` degli esperimenti.
 i=0.1
 while i<1:
-    G1=nx.gnp_random_graph(50,i)
+    G1=nx.gnp_random_graph(150,i)
     nx.write_adjlist(G1, "GrafiCasuali/Graph"+str(i)+".txt")
     #capacita' barca: nx.approximation.maximum_independent_set(G1) Returns an approximate maximum independent set.
     c=len(G1)-len(nx.approximation.maximum_independent_set(G1))
