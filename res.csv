@@ -1,0 +1,22 @@
+data_Graph7,
+problem: 
+- name: 
+  lower bound: 3.0
+  upper bound: 3.0
+  number of objectives: 1
+  number of constraints: 182160
+  number of variables: 60802
+  number of binary variables: 60802
+  number of integer variables: 0
+  number of continuous variables: 0
+  number of nonzeros: none
+  sense: 1
+solver: 
+- name: cplex 22.1.1.0
+  status: ok
+  wallclock time: 20.21267795562744
+  termination condition: optimal
+solution: 
+- number of solutions: 0
+  number of solutions displayed: 0
+

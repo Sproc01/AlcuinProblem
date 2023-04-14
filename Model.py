@@ -1,6 +1,16 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
+#lettura stringa res
+def get_info_from_results(results, info_string):
+    i = str(results).lower().find(info_string.lower()) + len(info_string)
+    value = ''
+    while str(results)[i] != '\n':
+        value = value + str(results)[i]
+        i += 1
+    return value
+
+
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
@@ -103,5 +113,7 @@ if __name__ == '__main__':
 	    #print("x[{}] = {}".format(p, value(instance.x[p])))
     for p in instance.y:
         print("y[{}] = {}".format(p, value(instance.y[p])))
-    #file=open("file.csv","a")
+    file=open("file.csv","a")
+    file.write(str(s[len(s)-v:len(s)-4])+","+get_info_from_results(res, 'Time: ')+","+get_info_from_results(res, "lower bound: ")+","+get_info_from_results(res,"upper bound: ")+","+get_info_from_results(res, "termination condition: ")+"\n")
+    file.close()
     
