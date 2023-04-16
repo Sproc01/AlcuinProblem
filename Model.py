@@ -107,7 +107,7 @@ if __name__ == '__main__':
         v=s[::-1].index("/")
     except:
         v=0
-    opt.write("Modelli_generati/AlcuinAbstract_"+str(s[len(s)-v:len(s)-4])+".lp")
+    #opt.write("Modelli_generati/AlcuinAbstract_"+str(s[len(s)-v:len(s)-4])+".lp")
     res = opt.solve(tee=True)
     #for p in instance.x:
 	    #print("x[{}] = {}".format(p, value(instance.x[p])))
