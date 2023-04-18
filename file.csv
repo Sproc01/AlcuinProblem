@@ -9,3 +9,6 @@ data_Graph2,6.110274076461792,3.0,3.0,optimal,52
 data_Graph0.5,402.0290720462799,3.0,3.0,optimal,142
 data_Graph0.5,431.9286410808563,3.0,3.0,optimal,141
 data_Graph0.5,5353.9601790905,3.0,3.0,optimal,140
+data_Graph0.1,104.84103083610535,3.0,3.0,optimal,120
+data_Graph0.1,87.6869900226593,None,None,infeasible,100
+data_Graph0.1,7150.949161291122,None,None,infeasible,110
