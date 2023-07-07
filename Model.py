@@ -112,7 +112,7 @@ if __name__ == '__main__':
     file1=open("res.csv","w")
     file1.write(str(res))
     file1.close()
-    file=open("file1.csv","a")
+    file=open("file.csv","a")
     upper=get_info_from_results(res,"upper bound: ")
     lower=get_info_from_results(res,"lower bound: ")
     if lower=='None' and upper=='None':
