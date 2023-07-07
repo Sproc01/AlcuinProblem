@@ -128,4 +128,3 @@ if __name__ == '__main__':
             if value(instance.y[p])==0:
                 break
             print("y[{}] = {}".format(p, value(instance.y[p])))
-    
