@@ -5,7 +5,7 @@ import networkx as nx
 #hanno probabilita` di essere generati pari a p, mentre il parametro seed regola il comportamento 
 #pseudo-casuale, in modo tale da permettere la riproducibilita` degli esperimenti.
 k=50
-while k<=150:
+while k<=200:
     i=0.1
     while i<=0.9:
         G1=nx.gnp_random_graph(k,i,1)

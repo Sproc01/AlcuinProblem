@@ -1,21 +1,21 @@
 
 Problem: 
 - Name: 
-  Lower bound: None
-  Upper bound: None
+  Lower bound: 3.0
+  Upper bound: 3.0
   Number of objectives: 1
-  Number of constraints: 207064
-  Number of variables: 15402
-  Number of binary variables: 15402
+  Number of constraints: 4954514
+  Number of variables: 241602
+  Number of binary variables: 241602
   Number of integer variables: 0
   Number of continuous variables: 0
   Number of nonzeros: None
   Sense: 1
 Solver: 
 - Name: CPLEX 22.1.1.0
-  Status: warning
-  Wallclock time: 21.830501079559326
-  Termination condition: infeasible
+  Status: ok
+  Wallclock time: 4497.515549898148
+  Termination condition: optimal
 Solution: 
 - number of solutions: 0
   number of solutions displayed: 0
