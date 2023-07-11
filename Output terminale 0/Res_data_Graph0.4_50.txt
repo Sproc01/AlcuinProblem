@@ -1,0 +1,46 @@
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+Tried aggregator 2 times.
+MIP Presolve eliminated 31137 rows and 252 columns.
+MIP Presolve modified 17900 coefficients.
+Aggregator did 100 substitutions.
+Reduced MIP has 75748 rows, 15050 columns, and 276696 nonzeros.
+Reduced MIP has 15050 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.32 sec. (245.67 ticks)
+Probing fixed 2 vars, tightened 0 bounds.
+Probing time = 1.07 sec. (312.07 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 643 rows and 51 columns.
+MIP Presolve modified 358 coefficients.
+Reduced MIP has 75105 rows, 14999 columns, and 275220 nonzeros.
+Reduced MIP has 14999 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.29 sec. (206.13 ticks)
+Probing time = 0.20 sec. (40.49 ticks)
+Clique table members: 130607.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 1.71 sec. (708.29 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        3.0000   242                      3.0000    14014         
+*     0+    0                            5.0000        3.0000            40.00%
+*     0+    0                            3.0000        3.0000             0.00%
+      0     0        cutoff              3.0000        3.0000    14014    0.00%
+Elapsed time = 9.84 sec. (4820.91 ticks, tree = 0.01 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    9.85 sec. (4822.41 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    9.85 sec. (4822.41 ticks)
+y[0] = 1.0
+y[1] = 1.0
+y[2] = 1.0
+y[3] = 1.0

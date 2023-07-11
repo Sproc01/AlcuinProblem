@@ -1,0 +1,48 @@
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+Tried aggregator 2 times.
+Aggregator has done 300 substitutions...
+MIP Presolve eliminated 1757201 rows and 752 columns.
+MIP Presolve modified 615600 coefficients.
+Aggregator did 300 substitutions.
+Reduced MIP has 3055649 rows, 135150 columns, and 14547747 nonzeros.
+Reduced MIP has 135150 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 175.88 sec. (65120.79 ticks)
+Probing fixed 2 vars, tightened 0 bounds.
+Probing time = 151.86 sec. (9439.82 ticks)
+Tried aggregator 1 time.
+Presolve has eliminated 150 rows and 150 columns...
+Detecting symmetries...
+MIP Presolve eliminated 150 rows and 150 columns.
+Reduced MIP has 3055499 rows, 135000 columns, and 14531781 nonzeros.
+Reduced MIP has 135000 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 70.58 sec. (21850.24 ticks)
+Probing time = 9.32 sec. (669.53 ticks)
+Clique table members: 3563789.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 111.52 sec. (29158.21 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        3.0000   490                      3.0000    84920         
+*     0+    0                            3.0000        3.0000             0.00%
+      0     0        cutoff              3.0000        3.0000    90523    0.00%
+Elapsed time = 762.17 sec. (202920.99 ticks, tree = 0.01 MB, solutions = 1)
+
+Clique cuts applied:  1577
+
+Root node processing (before b&c):
+  Real time             =  762.50 sec. (202970.34 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  762.50 sec. (202970.34 ticks)
+y[0] = 1.0
+y[1] = 1.0
+y[2] = 1.0
+y[3] = 1.0

@@ -1,3 +1,4 @@
+from tokenize import Double
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
@@ -118,7 +119,7 @@ if __name__ == '__main__':
     if lower=='None' and upper=='None':
         gap=0
     else:
-        gap=upper-lower
+        gap=float(upper)-float(lower)
     file.write(str(s[len(s)-v:len(s)-4])+","+get_info_from_results(res, 'Time: ')+","+lower+","+upper+","+str(gap)+','+get_info_from_results(res, "termination condition: ")+','+str(instance.Capacity.value)+','+str(instance.len.value)+"\n")
     file.close()
     #for p in instance.x:
