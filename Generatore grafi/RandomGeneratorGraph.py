@@ -4,20 +4,24 @@ import networkx as nx
 #gnprandomgraph(n,p,seed), che restituisce un’istanza di grafo G(n,p) di dimensione n in cui gli archi 
 #hanno probabilita` di essere generati pari a p, mentre il parametro seed regola il comportamento 
 #pseudo-casuale, in modo tale da permettere la riproducibilita` degli esperimenti.
-k=50
-while k<=200:
-    i=0.1
-    while i<=0.9:
-        G1=nx.gnp_random_graph(k,i,1)
-        nx.write_adjlist(G1, "GrafiCasuali/Graph"+str(i)+'_'+str(k)+".txt")
-        #capacita' barca: nx.approximation.maximum_independent_set(G1) Returns an approximate maximum independent set.
-        c=len(G1)-len(nx.approximation.maximum_independent_set(G1))
-        #scrivo valore su file
-        file=open("GrafiCasuali/Graph"+str(i)+'_'+str(k)+".txt","a")
-        file.write("\n!"+str(c))
-        file.close()
-        i+=0.1
-    k+=50
+z=0
+while z<3:
+    k=50
+    while k<=200:
+        i=0.1
+        while i<=0.9:
+            G1=nx.gnp_random_graph(k,i,1)
+            filename="GrafiCasuali/Graph"+str(int(i*100))+'_'+str(k)+'_'+str(z)+".txt"
+            nx.write_adjlist(G1,filename)
+            #capacita' barca: nx.approximation.maximum_independent_set(G1) Returns an approximate maximum independent set.
+            c=len(G1)-len(nx.approximation.maximum_independent_set(G1))-z
+            #scrivo valore su file
+            file=open(filename,"a")
+            file.write("\n!"+str(c))
+            file.close()
+            i+=0.1
+        k+=50
+    z+=1
 
 
 #Il metodo di NetworkX utilizzato nella generazione di questa tipologia di grafi e' 
