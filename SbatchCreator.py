@@ -33,7 +33,7 @@ for i in files:
     print("Sbatch of "+i)
     file=open("Sbatch/Sbatch_"+i[:len(i)-4]+".txt","w")
     file.write('#!/bin/bash\n')
-    file.write('#SBATCH --job-name=ModelliAlcuin'+i[:len(i)-4]+'\n')
+    file.write('#SBATCH --job-name=ModelloAlcuin_'+i[:len(i)-4]+'\n')
     file.write('#SBATCH --partition=arrow\n')
     file.write('#SBATCH --ntasks=1\n')
     file.write('#SBATCH --mem=14GB\n')

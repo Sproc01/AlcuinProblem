@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=ModelliAlcuindata_Graph60_50_1
+#SBATCH --job-name=ModelloAlcuin_data_Graph60_50_1
 #SBATCH --partition=arrow
 #SBATCH --ntasks=1
 #SBATCH --mem=14GB
