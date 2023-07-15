@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --job-name=ModelliAlcuindata_Graph30_50_1
+#SBATCH --partition=arrow
+#SBATCH --ntasks=1
+#SBATCH --mem=14GB
+#SBATCH --mail-user michele.sprocatti@studenti.unipd.it
+#SBATCH --output output_%j.txt
+#SBATCH --error errors_%j.txt
+#SBATCH --mail-type ALL
+# warm up processors
+sudo cpupower frequency-set -g performance
+sleep 0.1
+stress-ng -c 4 --cpu-ops=100
+# set limits
+ulimit -v 16777216
+#####################
+# commands to execute
+. ~/.bashrc
+cd /home/sprocatti1/AlcuinProblem
+python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph30_50_1.dat
+#####################
+# back to power saving mode
+sudo cpupower frequency-set -g powersave

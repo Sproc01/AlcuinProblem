@@ -30,7 +30,7 @@ try:
 except:
     pass
 for i in files:
-    print("Sbatch of"+i)
+    print("Sbatch of "+i)
     file=open("Sbatch/Sbatch_"+i[:len(i)-4]+".txt","w")
     file.write('#!/bin/bash\n')
     file.write('#SBATCH --job-name=ModelliAlcuin'+i[:len(i)-4]+'\n')
@@ -53,6 +53,6 @@ for i in files:
     file.write('cd /home/sprocatti1/AlcuinProblem\n')
     file.write('python3 Model.py Generatore\ grafi/ConvertitiCasuali/'+i+'\n')
     file.write('#####################\n')
-    file.write('# back to power saving mode')
+    file.write('# back to power saving mode\n')
     file.write('sudo cpupower frequency-set -g powersave')
     file.close()
