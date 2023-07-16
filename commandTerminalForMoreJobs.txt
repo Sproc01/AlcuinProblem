@@ -1,0 +1,1 @@
+for FILE in AlcuinProblem/Sbatch/*; do echo ${FILE}; sbatch --wckey=rop --requeue  ${FILE} sleep 1; done
