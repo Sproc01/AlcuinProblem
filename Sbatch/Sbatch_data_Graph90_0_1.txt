@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=ModelloAlcuin_data_Graph90_0_0
+#SBATCH --job-name=ModelloAlcuin_data_Graph90_0_1
 #SBATCH --partition=arrow
 #SBATCH --ntasks=1
 #SBATCH --mem=14GB
@@ -15,7 +15,7 @@ ulimit -v 16777216
 # commands to execute
 . ~/.bashrc
 cd /home/sprocatti1/AlcuinProblem
-python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph90_0_0.dat>Output\ terminale/Output_data_Graph90_0_0.txt
+python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph90_0_1.dat>Output\ terminale/Output_data_Graph90_0_1.txt
 #####################
 # back to power saving mode
 sudo cpupower frequency-set -g powersave

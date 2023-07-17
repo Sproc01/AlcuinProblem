@@ -63,3 +63,13 @@ data_Graph90_100_2,362.96079540252686,None,None,0,infeasible,94,100
 data_Graph90_100_0,3681.0229983329773,3.0,3.0,0.0,optimal,96,100
 data_Graph90_100_1,4755.12494802475,None,None,0,infeasible,95,100
 data_Graph60_100_1,25858.40377497673,5.0,5.0,0.0,optimal,92,100
+data_Graph90_8_0,6.397515773773193,None,None,0,infeasible,89,100
+data_Graph90_6_0,5.563971996307373,None,None,0,infeasible,91,100
+data_Graph90_9_0,4.882410287857056,None,None,0,infeasible,88,100
+data_Graph90_7_0,6.552741527557373,None,None,0,infeasible,90,100
+data_Graph90_0_0,239.7726001739502,3.0,3.0,0.0,optimal,97,100
+data_Graph90_4_0,317.59001755714417,None,None,0,infeasible,93,100
+data_Graph90_2_0,334.83547139167786,None,None,0,infeasible,95,100
+data_Graph90_3_0,396.10435914993286,None,None,0,infeasible,94,100
+data_Graph90_5_0,513.9274852275848,None,None,0,infeasible,92,100
+data_Graph90_1_0,6478.972139120102,3.0,3.0,0.0,optimal,96,100
