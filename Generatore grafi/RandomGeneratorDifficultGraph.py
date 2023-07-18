@@ -2,9 +2,9 @@ import networkx as nx
 
 z=0
 k=100
-p=0.7
+p=0.6
 seed=0
-while z<2:
+while z<3:
     while seed<20:
         G1=nx.gnp_random_graph(k,p,seed=seed)
         filename='GrafiCasuali/Graph'+str(int(p*100))+'_'+str(z)+'_'+str(seed)+'.txt'
