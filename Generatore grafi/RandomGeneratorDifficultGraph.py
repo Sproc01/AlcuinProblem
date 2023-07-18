@@ -2,7 +2,7 @@ import networkx as nx
 
 z=0
 k=100
-p=0.4
+p=0.1
 seed=0
 while z<3:
     while seed<20:

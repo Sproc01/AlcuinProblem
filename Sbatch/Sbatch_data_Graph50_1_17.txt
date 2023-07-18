@@ -14,7 +14,7 @@ ulimit -v 16777216
 #####################
 # commands to execute
 . ~/.bashrc
-cd /home/sprocatti1/AlcuinProblem
+cd /home/sprocatti1/prove/AlcuinProblem
 python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph50_1_17.dat>Output\ terminale/Output_data_Graph50_1_17.txt
 #####################
 # back to power saving mode
