@@ -1,0 +1,50 @@
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Read_DataCheck                          1
+Tried aggregator 2 times.
+Aggregator has done 200 substitutions...
+MIP Presolve eliminated 609534 rows and 502 columns.
+MIP Presolve modified 184668 coefficients.
+Aggregator did 200 substitutions.
+Reduced MIP has 1238831 rows, 60100 columns, and 7389989 nonzeros.
+Reduced MIP has 60100 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 130.85 sec. (75932.11 ticks)
+Probing time = 8.50 sec. (3720.99 ticks)
+Tried aggregator 1 time.
+Presolve has eliminated 7 rows and 741 columns...
+Detecting symmetries...
+MIP Presolve eliminated 7 rows and 741 columns.
+Reduced MIP has 1238824 rows, 59359 columns, and 7389968 nonzeros.
+Reduced MIP has 59359 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 30.37 sec. (12302.64 ticks)
+Probing time = 0.55 sec. (188.72 ticks)
+Clique table members: 524724.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 57.31 sec. (19040.69 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        1.1053  1502                      1.1053    53622         
+      0     0        3.0000   280                  Cuts: 1007    54987         
+      0     0        3.0000   269                  Cuts: 1071    55815         
+      0     0        cutoff                                      56617         
+Elapsed time = 342.77 sec. (155037.21 ticks, tree = 0.01 MB, solutions = 0)
+
+Clique cuts applied:  108
+Implied bound cuts applied:  34
+Zero-half cuts applied:  40
+
+Root node processing (before b&c):
+  Real time             =  342.80 sec. (155060.06 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  342.80 sec. (155060.06 ticks)
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: infeasible
+    - message from solver: <undefined>

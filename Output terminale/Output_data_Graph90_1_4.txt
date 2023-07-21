@@ -1,0 +1,54 @@
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Read_DataCheck                          1
+Tried aggregator 2 times.
+Aggregator has done 200 substitutions...
+MIP Presolve eliminated 643221 rows and 502 columns.
+MIP Presolve modified 176350 coefficients.
+Aggregator did 200 substitutions.
+Reduced MIP has 1199099 rows, 60100 columns, and 7383497 nonzeros.
+Reduced MIP has 60100 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 129.45 sec. (75364.01 ticks)
+Probing time = 8.23 sec. (3563.22 ticks)
+Tried aggregator 1 time.
+Presolve has eliminated 7 rows and 704 columns...
+Detecting symmetries...
+MIP Presolve eliminated 7 rows and 704 columns.
+Reduced MIP has 1199092 rows, 59396 columns, and 7383476 nonzeros.
+Reduced MIP has 59396 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 30.01 sec. (12121.32 ticks)
+Probing time = 0.48 sec. (153.11 ticks)
+Clique table members: 479961.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 58.33 sec. (20306.29 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        1.0833  1487                      1.0833    55028         
+      0     0        3.0000   266                  Cuts: 2432    56168         
+      0     0        3.0000   271                   Cuts: 251    56537         
+      0     0        3.0000    90                    Cuts: 56    56633         
+      0     0        3.0000   158                   Cuts: 353    57004         
+Heuristic still looking.
+*     0+    0                            3.0000        3.0000             0.00%
+      0     0  -1.00000e+75     0        3.0000        3.0000    57004    0.00%
+      0     0        cutoff              3.0000        3.0000    57004    0.00%
+Elapsed time = 690.25 sec. (213958.54 ticks, tree = 0.01 MB, solutions = 1)
+
+Clique cuts applied:  5
+Implied bound cuts applied:  25
+
+Root node processing (before b&c):
+  Real time             =  690.29 sec. (213988.66 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  690.29 sec. (213988.66 ticks)
+y[0] = 1.0
+y[1] = 1.0
+y[2] = 1.0
+y[3] = 1.0
