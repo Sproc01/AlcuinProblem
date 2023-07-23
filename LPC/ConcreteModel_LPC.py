@@ -100,6 +100,7 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
+    opt.options['randomseed']=1
     opt.set_instance(model)
     opt.write("AlcuinConcrete.lp")
     res = opt.solve(tee=True)
