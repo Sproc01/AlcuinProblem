@@ -7,7 +7,7 @@ try:
 except:
     pass
 for i in files:
-    for j in range(0, 4):
+    for j in range(0, 5):
         file=open("GrafiCasuali/"+i, "r")
         w=open("ConvertitiCasuali/data_"+i[:len(i)-4]+"_"+str(j)+".dat", "w")
         con=file.read()
