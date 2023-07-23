@@ -110,17 +110,14 @@ if __name__ == '__main__':
         v=0
     #opt.write("Modelli_generati/AlcuinAbstract_"+str(s[len(s)-v:len(s)-4])+".lp")
     res = opt.solve(tee=True)
-    file1=open("res.csv","w")
-    file1.write(str(res))
-    file1.close()
-    file=open("file.csv","a")
+    file=open("Risultati/file_"+str(s[len(s)-v:len(s)-4])+".csv","w")
     upper=get_info_from_results(res,"upper bound: ")
     lower=get_info_from_results(res,"lower bound: ")
     if lower=='None' and upper=='None':
         gap=0
     else:
         gap=float(upper)-float(lower)
-    file.write(str(s[len(s)-v:len(s)-4])+","+get_info_from_results(res, 'Time: ')+","+lower+","+upper+","+str(gap)+','+get_info_from_results(res, "termination condition: ")+','+str(instance.Capacity.value)+','+str(instance.len.value)+"\n")
+    file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+"\n")
     file.close()
     #for p in instance.x:
 	    #print("x[{}] = {}".format(p, value(instance.x[p])))
