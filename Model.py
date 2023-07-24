@@ -101,7 +101,7 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    opt.options['randomseed']=100000
+    opt.options['randomseed']=int(sys.argv[2])
     s=sys.argv[1]
     instance = model.create_instance(s)
     opt.set_instance(instance)

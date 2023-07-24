@@ -90,6 +90,8 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
+    print(sys.argv[2])
+    opt.options['randomseed']=int(sys.argv[2])
     instance = model.create_instance(sys.argv[1])
     opt.set_instance(instance)
     opt.write("AlcuinAbstract_LPC.lp")
