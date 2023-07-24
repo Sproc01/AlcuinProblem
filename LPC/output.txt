@@ -1,0 +1,110 @@
+3
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_RandomSeed                              3
+Tried aggregator 4 times.
+MIP Presolve eliminated 48 rows and 33 columns.
+MIP Presolve added 2 rows and 0 columns.
+MIP Presolve modified 19 coefficients.
+Aggregator did 11 substitutions.
+Reduced MIP has 52 rows, 36 columns, and 169 nonzeros.
+Reduced MIP has 36 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.59 ticks)
+Found incumbent of value 7.000000 after 0.00 sec. (0.81 ticks)
+Probing fixed 28 vars, tightened 0 bounds.
+Probing changed sense of 2 constraints.
+Probing time = 0.00 sec. (0.06 ticks)
+Cover probing fixed 0 vars, tightened 1 bounds.
+Tried aggregator 1 time.
+MIP Presolve eliminated 52 rows and 36 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.91 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.91 ticks)
+x[('L', 's', 0)] = 1.0
+x[('L', 's', 1)] = 1.0
+x[('L', 's', 2)] = 1.0
+x[('L', 's', 3)] = 0.0
+x[('L', 's', 4)] = -0.0
+x[('L', 's', 5)] = -0.0
+x[('L', 's', 6)] = -0.0
+x[('L', 's', 7)] = -0.0
+x[('L', 'b', 0)] = 0.0
+x[('L', 'b', 1)] = 0.0
+x[('L', 'b', 2)] = 0.0
+x[('L', 'b', 3)] = 1.0
+x[('L', 'b', 4)] = 0.0
+x[('L', 'b', 5)] = -0.0
+x[('L', 'b', 6)] = -0.0
+x[('L', 'b', 7)] = -0.0
+x[('L', 'd', 0)] = 0.0
+x[('L', 'd', 1)] = 0.0
+x[('L', 'd', 2)] = 0.0
+x[('L', 'd', 3)] = 0.0
+x[('L', 'd', 4)] = 1.0
+x[('L', 'd', 5)] = 1.0
+x[('L', 'd', 6)] = 1.0
+x[('L', 'd', 7)] = 1.0
+x[('C', 's', 0)] = 1.0
+x[('C', 's', 1)] = 1.0
+x[('C', 's', 2)] = 1.0
+x[('C', 's', 3)] = 1.0
+x[('C', 's', 4)] = 1.0
+x[('C', 's', 5)] = -0.0
+x[('C', 's', 6)] = -0.0
+x[('C', 's', 7)] = -0.0
+x[('C', 'b', 0)] = 0.0
+x[('C', 'b', 1)] = 0.0
+x[('C', 'b', 2)] = 0.0
+x[('C', 'b', 3)] = 0.0
+x[('C', 'b', 4)] = 0.0
+x[('C', 'b', 5)] = 1.0
+x[('C', 'b', 6)] = -0.0
+x[('C', 'b', 7)] = -0.0
+x[('C', 'd', 0)] = 0.0
+x[('C', 'd', 1)] = 0.0
+x[('C', 'd', 2)] = 0.0
+x[('C', 'd', 3)] = 0.0
+x[('C', 'd', 4)] = -0.0
+x[('C', 'd', 5)] = -0.0
+x[('C', 'd', 6)] = 1.0
+x[('C', 'd', 7)] = 1.0
+x[('P', 's', 0)] = 1.0
+x[('P', 's', 1)] = 0.0
+x[('P', 's', 2)] = 0.0
+x[('P', 's', 3)] = 0.0
+x[('P', 's', 4)] = 0.0
+x[('P', 's', 5)] = 1.0
+x[('P', 's', 6)] = 1.0
+x[('P', 's', 7)] = -0.0
+x[('P', 'b', 0)] = 0.0
+x[('P', 'b', 1)] = 1.0
+x[('P', 'b', 2)] = 0.0
+x[('P', 'b', 3)] = 0.0
+x[('P', 'b', 4)] = 1.0
+x[('P', 'b', 5)] = -0.0
+x[('P', 'b', 6)] = -0.0
+x[('P', 'b', 7)] = 1.0
+x[('P', 'd', 0)] = 0.0
+x[('P', 'd', 1)] = 0.0
+x[('P', 'd', 2)] = 1.0
+x[('P', 'd', 3)] = 1.0
+x[('P', 'd', 4)] = 0.0
+x[('P', 'd', 5)] = -0.0
+x[('P', 'd', 6)] = -0.0
+x[('P', 'd', 7)] = -0.0
+y[0] = 1.0
+y[1] = 1.0
+y[2] = 1.0
+y[3] = 1.0
+y[4] = 1.0
+y[5] = 1.0
+y[6] = 1.0
+y[7] = 1.0
