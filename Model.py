@@ -119,7 +119,7 @@ if __name__ == '__main__':
         gap=float(upper)-float(lower)
     lock = Lock()
     lock.acquire()
-    file=open("Risultati/file_"+str(s[len(s)-v:len(s)-4])+".csv","w")
+    file=open("RisultatiFinali.csv","w")
     file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+"\n")
     file.close()
     lock.release()
