@@ -1,6 +1,6 @@
-from tokenize import Double
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
+from threading import Lock
 
 #lettura stringa res
 def get_info_from_results(results, info_string):
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     import sys
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
-    opt.options['randomseed']=100
+    opt.options['randomseed']=100000
     s=sys.argv[1]
     instance = model.create_instance(s)
     opt.set_instance(instance)
@@ -111,15 +111,18 @@ if __name__ == '__main__':
         v=0
     #opt.write("Modelli_generati/AlcuinAbstract_"+str(s[len(s)-v:len(s)-4])+".lp")
     res = opt.solve(tee=True)
-    file=open("Risultati/file_"+str(s[len(s)-v:len(s)-4])+".csv","w")
     upper=get_info_from_results(res,"upper bound: ")
     lower=get_info_from_results(res,"lower bound: ")
     if lower=='None' and upper=='None':
         gap=0
     else:
         gap=float(upper)-float(lower)
+    lock = Lock()
+    lock.acquire()
+    file=open("Risultati/file_"+str(s[len(s)-v:len(s)-4])+".csv","w")
     file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+"\n")
     file.close()
+    lock.release()
     #for p in instance.x:
 	    #print("x[{}] = {}".format(p, value(instance.x[p])))
     if get_info_from_results(res, "termination condition: ")=='optimal':
