@@ -1,33 +1,52 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
 import numpy as np
 
 data=pd.read_csv('res.csv',delimiter=';')
-# popt, pcov = curve_fit(lambda t, a, b: a * np.exp(b * t), probability, time)
-# # Extract the optimised parameters
-# a = popt[0]
-# b = popt[1]
-# x_fitted_curve_fit = np.linspace(np.min(probability), np.max(time), 100)
-# y_fitted_curve_fit = a * np.exp(b * x_fitted_curve_fit)
-# fig1=plt.figure('1')
-# plt.plot(x_fitted_curve_fit, y_fitted_curve_fit)
-# plt.title('mincapacity=2 & termination condition infeasibile')
-# print(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1)])
+# fig0=plt.figure('minCapacity=1 and optimal avg time')
 # probability=[0.9,0.8,0.7,0.6,0.5,0.4]
 # time=[
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==90)]['TIME(s)']),
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==80)]['TIME(s)']),
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==70)]['TIME(s)']),
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==60)]['TIME(s)']),
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==50)]['TIME(s)']),
-#     np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==40)]['TIME(s)']),]
-#fig1=plt.figure('1')
-probability=data[data['MINCAPACITY']==1]['PROBABILITY']
-time=data[data['MINCAPACITY']==1]['TIME(s)']
-plt.scatter(probability,time)
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==90)]['TIME(s)']),
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==80)]['TIME(s)']),
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==70)]['TIME(s)']),
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==60)]['TIME(s)']),
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==50)]['TIME(s)']),
+#      np.mean(data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1) & (data['PROBABILITY']==40)]['TIME(s)']),]
+# plt.scatter(probability,time)
+# sns.lineplot(x=probability,y=time)
 
-#plt.plot(probability,time)
+fig1=plt.figure('minCapacity=1 and optimal')
+probability=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1)]['PROBABILITY']
+time=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1)]['TIME(s)']
+plt.scatter(probability,time)
 sns.lineplot(x=probability,y=time)
+fig1.savefig('../Grafici/minCapacity=1 and optimal.png')
+
+fig3=plt.figure('minCapacity=1 and infeasible')
+probability=data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='infeasible')]['PROBABILITY']
+time=data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)']
+plt.scatter(probability,time)
+sns.lineplot(x=probability,y=time)
+fig3.savefig('../Grafici/minCapacity=1 and infeasible.png')
+
+fig4=plt.figure('minCapacity=2 and infeasible')
+probability=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='infeasible')]['PROBABILITY']
+time=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)']
+plt.scatter(probability,time)
+sns.lineplot(x=probability,y=time)
+fig4.savefig('../Grafici/minCapacity=2 and infeasible.png')
+
+fig5=plt.figure('minCapacity=2 and optimal')
+probability=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='optimal')]['PROBABILITY']
+time=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='optimal')]['TIME(s)']
+plt.scatter(probability,time)
+sns.lineplot(x=probability,y=time)
+fig5.savefig('../Grafici/minCapacity=2 and optimal.png')
+
+fig2=plt.figure("Histogram optimal/infeasibile")
+terminationCondition=data['TERMINATION CONDITION']
+plt.hist(terminationCondition, bins=2, rwidth=0.9)
+fig2.savefig('../Grafici/histogram.png')
+
 plt.show()
