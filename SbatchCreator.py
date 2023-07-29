@@ -24,7 +24,7 @@ import os
 # back to power saving mode
 #sudo cpupower frequency-set -g powersave
 files=os.listdir("Generatore grafi/ConvertitiCasuali")
-seed=[4,67,100]#1,13,97
+seed=[4,67,100,1,13,97]
 files.sort()
 try:
     files.remove(".DS_Store")
