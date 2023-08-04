@@ -16,55 +16,71 @@ data=pd.read_csv('res.csv',delimiter=';')
 # plt.scatter(probability,time)
 # sns.lineplot(x=probability,y=time)
 
-fig1=plt.figure('minCapacity=1 and optimal')
+fig0_o=plt.figure('minCapacity=0 and optimal')
+probability=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==0)]['PROBABILITY']
+time=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==0)]['TIME(s)']
+plt.scatter(probability,time)
+sns.lineplot(x=probability,y=time)
+fig0_o.savefig('../Grafici/minCapacity=0 and optimal.png')
+
+fig0_i=plt.figure('minCapacity=0 and infeasible')
+probability=data[(data['MINCAPACITY']==0) & (data['TERMINATION CONDITION']=='infeasible')]['PROBABILITY']
+time=data[(data['MINCAPACITY']==0) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)']
+plt.scatter(probability,time)
+sns.lineplot(x=probability,y=time)
+fig0_i.savefig('../Grafici/minCapacity=0 and infeasible.png')
+
+fig1_o=plt.figure('minCapacity=1 and optimal')
 probability=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1)]['PROBABILITY']
 time=data[(data['TERMINATION CONDITION']=='optimal') & (data['MINCAPACITY']==1)]['TIME(s)']
 plt.scatter(probability,time)
 sns.lineplot(x=probability,y=time)
-fig1.savefig('../Grafici/minCapacity=1 and optimal.png')
+fig1_o.savefig('../Grafici/minCapacity=1 and optimal.png')
 
-fig3=plt.figure('minCapacity=1 and infeasible')
+fig1_i=plt.figure('minCapacity=1 and infeasible')
 probability=data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='infeasible')]['PROBABILITY']
 time=data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)']
 plt.scatter(probability,time)
 sns.lineplot(x=probability,y=time)
-fig3.savefig('../Grafici/minCapacity=1 and infeasible.png')
+fig1_i.savefig('../Grafici/minCapacity=1 and infeasible.png')
 
-fig4=plt.figure('minCapacity=2 and infeasible')
+fig2_i=plt.figure('minCapacity=2 and infeasible')
 probability=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='infeasible')]['PROBABILITY']
 time=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)']
 plt.scatter(probability,time)
 sns.lineplot(x=probability,y=time)
-fig4.savefig('../Grafici/minCapacity=2 and infeasible.png')
+fig2_i.savefig('../Grafici/minCapacity=2 and infeasible.png')
 
-fig5=plt.figure('minCapacity=2 and optimal')
+fig2_o=plt.figure('minCapacity=2 and optimal')
 probability=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='optimal')]['PROBABILITY']
 time=data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='optimal')]['TIME(s)']
 plt.scatter(probability,time)
 sns.lineplot(x=probability,y=time)
-fig5.savefig('../Grafici/minCapacity=2 and optimal.png')
+fig2_o.savefig('../Grafici/minCapacity=2 and optimal.png')
 
-fig2=plt.figure("Histogram optimal/infeasibile")
+hist=plt.figure("Histogram optimal/infeasibile")
 terminationCondition=data['TERMINATION CONDITION']
 plt.hist(terminationCondition, bins=2, rwidth=0.9)
-fig2.savefig('../Grafici/histogram.png')
+hist.savefig('../Grafici/histogram.png')
 
-fig6=plt.figure("mincapacity=2 vs mincapacity=1 for optimal")
+minc_o=plt.figure("mincapacity=2 vs mincapacity=1 vs mincapacity=0 for optimal")
 minCapacityTime=data[data['TERMINATION CONDITION']=='optimal']['TIME(s)']
 minCapacity=data[data['TERMINATION CONDITION']=='optimal']['MINCAPACITY']
 plt.scatter(minCapacity, minCapacityTime)
 minCapacityTime1avg=np.mean(data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='optimal')]['TIME(s)'])
 minCapacityTime2avg=np.mean(data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='optimal')]['TIME(s)'])
-plt.scatter([1,2],[minCapacityTime1avg,minCapacityTime2avg])
-fig6.savefig('../Grafici/mincapacity=2 vs mincapacity=1 for optimal.png')
+minCapacityTime0avg=np.mean(data[(data['MINCAPACITY']==0) & (data['TERMINATION CONDITION']=='optimal')]['TIME(s)'])
+plt.scatter([0,1,2],[minCapacityTime0avg,minCapacityTime1avg,minCapacityTime2avg])
+minc_o.savefig('../Grafici/mincapacity=2 vs mincapacity=1 vs mincapacity=0 for optimal.png')
 
-fig7=plt.figure("mincapacity=2 vs mincapacity=1 for infeasible")
+fig7=plt.figure("mincapacity=2 vs mincapacity=1 vs mincapacity=0 for infeasible")
 minCapacityTime=data[data['TERMINATION CONDITION']=='infeasible']['TIME(s)']
 minCapacity=data[data['TERMINATION CONDITION']=='infeasible']['MINCAPACITY']
 plt.scatter(minCapacity, minCapacityTime)
 minCapacityTime1avg=np.mean(data[(data['MINCAPACITY']==1) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)'])
 minCapacityTime2avg=np.mean(data[(data['MINCAPACITY']==2) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)'])
-plt.scatter([1,2],[minCapacityTime1avg,minCapacityTime2avg])
-fig7.savefig('../Grafici/mincapacity=2 vs mincapacity=1 for infeasible.png')
+minCapacityTime0avg=np.mean(data[(data['MINCAPACITY']==0) & (data['TERMINATION CONDITION']=='infeasible')]['TIME(s)'])
+plt.scatter([0,1,2],[minCapacityTime0avg,minCapacityTime1avg,minCapacityTime2avg])
+fig7.savefig('../Grafici/mincapacity=2 vs mincapacity=1 vs mincapacity=0 for infeasible.png')
 
 #plt.show()
