@@ -7,7 +7,7 @@ This project has the goal to study how much time is necessary to find if a given
 - A file that create SLURM file for all the graphs
 - A file for elaboration of the result(requires numpy, matplotlib, seaborn, pandas)
 
-#Requires
+# Requires
 - Python version 3.9
 - Numpy version 1.24.2
 - Pyomo version 6.5.0
