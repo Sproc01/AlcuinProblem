@@ -104,3 +104,32 @@ plt.title('mincapacity=2 vs mincapacity=1 vs mincapacity=0 for infeasible')
 plt.ylabel('Time(s)')
 plt.xlabel('Variation Capacity')
 fig7.savefig('../Grafici/mincapacity=2 vs mincapacity=1 vs mincapacity=0 for infeasible.png')
+
+fig8=plt.figure("Alcuin number")
+probability1=list(data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==1)]['PROBABILITY'].__array__())
+capacity1=list(data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==1)]['CAPACITY'].__array__())
+probability2=list(data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==2)]['PROBABILITY'].__array__())
+capacity2=list(data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==2)]['CAPACITY'].__array__())
+graph1=data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==1)]['GRAPH'].__array__()
+print(type(graph1))
+graph2=data[(data['TERMINATION CONDITION']=='infeasible') & (data['MINCAPACITY']==2)]['GRAPH'].__array__()
+toremove=[]
+for i in range(0, len(graph1)):
+    for j in range(0,len(graph2)):
+        if graph1[i][0:13]==graph2[j][0:13] and graph1[i][14::]==graph2[j][14::]:
+            toremove.append(j)
+            print(graph1[i]+"......"+graph2[j])
+toremove=list(dict.fromkeys(toremove))
+print(toremove)
+for k in toremove[::-1]:
+    probability2.pop(k)
+    capacity2.pop(k)
+capacity=capacity1+capacity2
+capacity = [x+1 for x in capacity]
+print(np.mean(capacity))
+probability=probability1+probability2
+sns.lineplot(x=probability, y=capacity)
+plt.title("Alcuin number")
+plt.xlabel("Percentual edge")
+plt.ylabel("Alcuin number")
+fig8.savefig("../Grafici/Alcuin number.png")
