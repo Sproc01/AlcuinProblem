@@ -74,7 +74,7 @@ pie=plt.figure("Pie optimal/infeasibile")
 number=[]
 number.append(len(data[data['TERMINATION CONDITION']=='optimal']))
 number.append(len(data[data['TERMINATION CONDITION']=='infeasible']))
-plt.pie(number, labels=['optimal','infeasible'], shadow=True, startangle=90, explode=[0.1,0])
+plt.pie(number, labels=['optimal','infeasible'], startangle=90, explode=[0.1,0])
 pie.savefig('Grafici/pie.png')
 
 minc_o=plt.figure("mincapacity=2 vs mincapacity=1 vs mincapacity=0 for optimal")

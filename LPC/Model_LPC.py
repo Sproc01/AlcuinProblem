@@ -1,6 +1,15 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 
+#lettura stringa res
+def get_info_from_results(results, info_string):
+    i = str(results).lower().find(info_string.lower()) + len(info_string)
+    value = ''
+    while str(results)[i] != '\n':
+        value = value + str(results)[i]
+        i += 1
+    return value
+
 def obj_rule(model):#f.obiettivo
     return sum(model.y[f] for f in model.Trips)-1
 
@@ -91,12 +100,26 @@ if __name__ == '__main__':
     model = buildmodel()
     opt = SolverFactory('cplex_persistent')
     print(sys.argv[2])
+    s=sys.argv[1]
+    try:
+        v=s[::-1].index("/")
+    except:
+        v=0
     opt.options['randomseed']=int(sys.argv[2])
-    instance = model.create_instance(sys.argv[1])
+    instance = model.create_instance(s)
     opt.set_instance(instance)
     opt.write("AlcuinAbstract_LPC.lp")
     res = opt.solve(tee=True)
+    upper=get_info_from_results(res,"upper bound: ")
+    lower=get_info_from_results(res,"lower bound: ")
+    if lower=='None' and upper=='None':
+        gap=0
+    else:
+        gap=float(upper)-float(lower)
     for p in instance.x:
 	    print("x[{}] = {}".format(p, value(instance.x[p])))
     for p in instance.y:
         print("y[{}] = {}".format(p, value(instance.y[p])))
+    file=open('res/Risultati'+str(s[len(s)-v:len(s)-4])+'_'+sys.argv[2]+'.csv',"w")
+    file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+";"+str(s[len(s)-v:len(s)-4])[10:12]+';'+str(s[len(s)-v:len(s)-4])[13]+"\n")
+    file.close()

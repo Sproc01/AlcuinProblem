@@ -15,7 +15,7 @@ ulimit -v 16777216
 # commands to execute
 . ~/.bashrc
 cd /home/sprocatti1/AlcuinProblem
-python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph40_2_43.dat 67 >Output\ terminale/Output_data_Graph40_2_43.txt
+python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph40_2_43.dat 67 >Output\ terminale/Output_data_Graph40_2_43_67.txt
 #####################
 # back to power saving mode
 sudo cpupower frequency-set -g powersave

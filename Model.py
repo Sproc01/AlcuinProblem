@@ -1,6 +1,5 @@
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
-from threading import Lock
 
 #lettura stringa res
 def get_info_from_results(results, info_string):
@@ -117,14 +116,9 @@ if __name__ == '__main__':
         gap=0
     else:
         gap=float(upper)-float(lower)
-    lock = Lock()
-    lock.acquire()
-    file=open("Risultati.csv","a")
-    file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+"\n")
+    file=open('Res/Risultati'+str(s[len(s)-v:len(s)-4])+'_'+sys.argv[2]+'.csv',"w")
+    file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+";"+str(s[len(s)-v:len(s)-4])[10:12]+';'+str(s[len(s)-v:len(s)-4])[13]+"\n")
     file.close()
-    lock.release()
-    #for p in instance.x:
-	    #print("x[{}] = {}".format(p, value(instance.x[p])))
     if get_info_from_results(res, "termination condition: ")=='optimal':
         for p in instance.y:
             if value(instance.y[p])==0:

@@ -53,7 +53,7 @@ for i in files:
         file.write('# commands to execute\n')
         file.write('. ~/.bashrc\n')
         file.write('cd /home/sprocatti1/AlcuinProblem\n')
-        file.write('python3 Model.py Generatore\ grafi/ConvertitiCasuali/'+i+" "+str(j)+' >Output\ terminale/Output_'+i[:len(i)-4]+'.txt'+'\n')
+        file.write('python3 Model.py Generatore\ grafi/ConvertitiCasuali/'+i+" "+str(j)+' >Output\ terminale/Output_'+i[:len(i)-4]+'_'+str(j)+'.txt'+'\n')
         file.write('#####################\n')
         file.write('# back to power saving mode\n')
         file.write('sudo cpupower frequency-set -g powersave')
