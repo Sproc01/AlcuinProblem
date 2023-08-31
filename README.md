@@ -9,13 +9,14 @@ This project has the goal to study how much time is necessary to find if the gen
 - A simple example of river crossing problem (graph: L-P-C) with the definition of a concrete and an abstract model
 
 This program also shows some graphs about the time and one about the Alcuin Number of a graph highlighting the dependence between this number and the density of the graph.
+
 This study is the center of my bachelor's degree thesis at University of Padua.
 
 # Requires
 - Python version 3.9
 - Numpy version 1.24.2
 - Pyomo version 6.5.0
-- CPLEX (version 22.1.1) and his Python bindings
+- CPLEX version 22.1.1 and his Python bindings
 - Networkx version 3.1
 - Matplotlib version 3.7.1
 - Seaborn version 0.12.2
