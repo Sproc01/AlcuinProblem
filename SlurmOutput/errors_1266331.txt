@@ -1,0 +1,2 @@
+/var/spool/slurm/d/job1266331/slurm_script: line 18: 32360 Killed                  python3 Model.py Generatore\ grafi/ConvertitiCasuali/data_Graph60_2_7.dat 1 > Output\ terminale/Output_data_Graph60_2_7_1.txt
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=1266331.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -116,7 +116,7 @@ if __name__ == '__main__':
         gap=0
     else:
         gap=float(upper)-float(lower)
-    file=open('Res/Risultati'+str(s[len(s)-v:len(s)-4])+'_'+sys.argv[2]+'.csv',"w")
+    file=open('Res/Result'+str(s[len(s)-v:len(s)-4])+'_'+sys.argv[2]+'.csv',"w")
     file.write(str(s[len(s)-v:len(s)-4])+";"+get_info_from_results(res, 'Time: ')+";"+lower+";"+upper+";"+str(gap)+';'+get_info_from_results(res, "termination condition: ")+';'+str(instance.Capacity.value)+';'+str(instance.len.value)+";"+str(s[len(s)-v:len(s)-4])[10:12]+';'+str(s[len(s)-v:len(s)-4])[13]+"\n")
     file.close()
     if get_info_from_results(res, "termination condition: ")=='optimal':

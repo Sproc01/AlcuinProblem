@@ -1,0 +1,15 @@
+Setting cpu: 0
+Setting cpu: 1
+Setting cpu: 2
+Setting cpu: 3
+stress-ng: info:  [30850] defaulting to a 1 day, 0 secs run per stressor
+stress-ng: info:  [30850] dispatching hogs: 4 cpu
+stress-ng: info:  [30850] skipped: 0
+stress-ng: info:  [30850] passed: 4: cpu (4)
+stress-ng: info:  [30850] failed: 0
+stress-ng: info:  [30850] metrics untrustworthy: 0
+stress-ng: info:  [30850] successful run completed in 0.02 secs
+Setting cpu: 0
+Setting cpu: 1
+Setting cpu: 2
+Setting cpu: 3

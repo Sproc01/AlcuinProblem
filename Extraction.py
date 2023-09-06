@@ -5,6 +5,6 @@ for i in files:
     file=open('Res/'+i,'r')
     lines=file.readlines()
     file.close()
-    file=open('Risultati.csv','a')
-    file.write(lines[0]+'\n')
+    file=open('Result.csv','a')
+    file.write(lines[0])
     file.close()
